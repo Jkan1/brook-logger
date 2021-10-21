@@ -16,8 +16,7 @@
     "url": "https://github.com/Jkan1/brook-logger/issues"
   },
   "homepage": "https://github.com/Jkan1/brook-logger#readme",
-  "dependencies": {
-    "winston": "^3.3.3",
-    "winston-daily-rotate-file": "^4.5.5"
+  "devDependencies": {
+    "typescript": "^4.4.4"
   }
 }
