@@ -1,4 +1,8 @@
 node_modules
 logs
 /lib
+src
+tsconfig.json
+tslint.json
+.prettierrc
 package-lock.json
