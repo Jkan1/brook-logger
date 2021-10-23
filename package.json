@@ -32,6 +32,9 @@
   },
   "homepage": "https://github.com/Jkan1/brook-logger#readme",
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-typescript": "^7.15.0",
     "@types/jest": "^27.0.2",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",
