@@ -4,7 +4,11 @@
         "module": "commonjs",
         "declaration": true,
         "outDir": "./lib",
-        "strict": true
+        "strict": true,
+        // Ensure that .d.ts files are created by tsc, but not .js files
+        "emitDeclarationOnly": true,
+        // Ensure that Babel can safely transpile files in the TypeScript project
+        "isolatedModules": true
     },
     "include": [
         "src"
