@@ -6,7 +6,8 @@ interface LoggerOptions {
   path?: string;
   errorPath?: string;
   rotation?: Rotation;
-  initLog?: Boolean
+  initLog?: Boolean;
+  logFileExtension?: Boolean;
 }
 
 export default class Logger {
@@ -35,6 +36,11 @@ export default class Logger {
 
     this.stdOutName = this.LOG_PATH + 'logs-' + this.LOG_STAMP;
     this.stdErrorName = (this.ERROR_LOG_PATH || this.LOG_PATH) + 'error-logs-' + this.LOG_STAMP;
+
+    if (loggerOptions?.logFileExtension) {
+      this.stdOutName += '.log';
+      this.stdErrorName += '.log';
+    }
 
     this.stdOutStream = createWriteStream(this.stdOutName, { flags: 'a' });
     this.stdErrorStream = createWriteStream(this.stdErrorName, { flags: 'a' });
