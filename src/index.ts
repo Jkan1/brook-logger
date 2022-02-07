@@ -1,4 +1,4 @@
-import { createWriteStream } from 'fs';
+import { createWriteStream, existsSync, mkdirSync } from 'fs';
 import { Rotation } from './Rotation';
 import { Level } from './Level';
 
@@ -6,6 +6,7 @@ interface LoggerOptions {
   path?: string;
   errorPath?: string;
   rotation?: Rotation;
+  initLog?: Boolean
 }
 
 export default class Logger {
@@ -26,16 +27,27 @@ export default class Logger {
 
     if (this.LOG_ROTATION == Rotation.HOURLY) this.LOG_STAMP = new Date().toISOString().slice(0, 13);
 
+    if (!existsSync(this.LOG_PATH))
+      mkdirSync(this.LOG_PATH);
+
+    if (this.ERROR_LOG_PATH && !existsSync(this.ERROR_LOG_PATH))
+      mkdirSync(this.ERROR_LOG_PATH);
+
     this.stdOutName = this.LOG_PATH + 'logs-' + this.LOG_STAMP;
     this.stdErrorName = (this.ERROR_LOG_PATH || this.LOG_PATH) + 'error-logs-' + this.LOG_STAMP;
 
     this.stdOutStream = createWriteStream(this.stdOutName, { flags: 'a' });
     this.stdErrorStream = createWriteStream(this.stdErrorName, { flags: 'a' });
+
+    if (loggerOptions?.initLog)
+      this.log('Logger Initialized');
   }
 
   private stdOutLog(...data: any) {
     for (let index = 0; index < data.length; index++) {
       if (typeof data[index] == 'string') this.stdOutStream.write(data[index]);
+      else if (typeof data[index] == 'function')
+        this.stdOutStream.write(data[index].toString());
       else if (typeof data[index] == 'object')
         try {
           this.stdOutStream.write(JSON.stringify(data[index]));
@@ -64,14 +76,17 @@ export default class Logger {
   public log(...data: any) {
     const timestamp = new Date().toISOString();
     this.stdOutLog(timestamp, '- ' + Level.INFO + ' ~', ...data);
+    console.log(timestamp, '- ' + Level.INFO + ' ~', ...data);
   }
   public warn(...data: any) {
     const timestamp = new Date().toISOString();
     this.stdOutLog(timestamp, '- ' + Level.WARN + ' ~', ...data);
+    console.warn(timestamp, '- ' + Level.WARN + ' ~', ...data);
   }
   public error(...data: any) {
     const timestamp = new Date().toISOString();
     this.stdErrorLog(timestamp, '- ' + Level.ERROR + ' ~', ...data);
     this.stdOutLog(timestamp, '- ' + Level.ERROR + ' ~', ...data);
+    console.error(timestamp, '- ' + Level.ERROR + ' ~', ...data);
   }
 }
