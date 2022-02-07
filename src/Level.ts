@@ -1,7 +1,7 @@
 export enum Level {
-    error = "error",
-    warn = "warn",
-    info = "info",
-    verbose = "verbose",
-    debug = "debug"
+  ERROR = 'ERROR',
+  WARN = 'WARN',
+  INFO = 'INFO',
+  VERBOSE = 'VERBOSE',
+  DEBUG = 'DEBUG',
 }
