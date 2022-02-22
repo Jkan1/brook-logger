@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "npx eslint src",
     "check-format": "prettier --check \"src/**/*.ts\" \"src/**/*.js\"",
-    "prepare": "npm test && npm run lint && npm run format && npm run build"
+    "prepare": "npm run build && npm test && npm run lint && npm run format && npm run build"
   },
   "files": [
     "lib/**/*"
