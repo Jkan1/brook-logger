@@ -1,7 +1,7 @@
 test('Check If Log Files Created', () => {
   const fs = require('fs');
-  const Logger = require('../../lib/index').default;
-  const logger = new Logger();
+  const brook = require('../../lib');
+  const logger = new brook.Logger();
 
   logger.log('Logging Some message', [1, 2, 3, 4, 5]);
   logger.warn('Warning This is an Object', { name: 'kan' });

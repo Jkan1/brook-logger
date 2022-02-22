@@ -1,5 +1,6 @@
 test('Check If Module Required', () => {
-  const Logger = require('../../lib/index').default;
+  const Logger = require('../../lib');
 
-  expect(typeof Logger).toBe('function');
+  expect(typeof Logger).toBe('object');
+  expect(typeof Logger.Logger).toBe('function');
 });
