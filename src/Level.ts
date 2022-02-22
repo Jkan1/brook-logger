@@ -1,4 +1,3 @@
-
 enum Level {
   ERROR = 'ERROR',
   WARN = 'WARN',

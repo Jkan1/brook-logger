@@ -1,7 +1,7 @@
 /**
- *  
+ *
  * Welcome to Brook-Logger
- * 
+ *
  */
 
 export { default as Logger } from './Logger';
