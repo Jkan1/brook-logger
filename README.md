@@ -4,6 +4,7 @@ A simple logger based on filesystem module.
 
 [![Version npm](https://img.shields.io/npm/v/brook-logger.svg?style=flat-square)](https://www.npmjs.com/package/brook-logger)
 [![npm Downloads](https://img.shields.io/npm/dm/brook-logger.svg?style=flat-square)](https://npmcharts.com/compare/brook-logger?minimal=true)
+
 [![NPM](https://nodei.co/npm/brook-logger.png?downloads=true&downloadRank=true)](https://nodei.co/npm/brook-logger/)
 
 ## Motivation
@@ -42,12 +43,12 @@ A logger accepts the following parameters:
 
 | Name          | Default                     |  Description    |
 | ------------- | --------------------------- | --------------- |
-| `preserveLogs`| `'false'`                   | To save logs in created Log Files |
+| `preserveLogs`| `false`                     | To save logs in created Log Files |
 | `path`        | `logs/`                     | Log Files path  |
 | `errorPath`   | `logs/`                     | Error Log Files path  |
 | `rotation`    | `brook-logger.Rotation.DAILY` | When to rotate Log Files |
-| `logFileExtension` | ``                     | Extensions for generated Log Files |
-| `initLog`      | `false`                    | Log when Logger is initialised  |
+| `logFileExtension` |                        | Extensions for generated Log Files |
+| `initLog`     | `false`                     | Log when Logger is initialised  |
 
 ``` js
 const { Rotation, Level } = require('brook-logger');
