@@ -12,5 +12,5 @@ test('Check If Log Files Created', () => {
 
   setTimeout(() => {
     expect(fs.existsSync(logFileName) && fs.existsSync(errorLogFileName)).toBe(true);
-  }, 1000);
+  }, 0);
 });
