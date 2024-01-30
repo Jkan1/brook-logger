@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Jkan1/brook-logger#readme",
   "devDependencies": {
+    "@types/node": "^20.11.11",
     "eslint": "^8.8.0",
     "jest": "^27.3.1",
     "prettier": "^2.4.1",
