@@ -47,12 +47,13 @@ A logger accepts the following parameters:
 | `path`        | `logs/`                     | Log Files path  |
 | `errorPath`   | `logs/`                     | Error Log Files path  |
 | `rotation`    | `brook-logger.Rotation.DAILY` | When to rotate Log Files |
-| `logFileExtension` |                        | Extensions for generated Log Files |
+| `logFileExtension` | `false`                | Extensions for generated Log Files |
 | `initLog`     | `false`                     | Log when Logger is initialised  |
 
 ``` js
 const { Rotation, Level } = require('brook-logger');
 ```
+
 ## Logging Levels
 
 Currently the following Logging levels are present in `brook-logger`.
@@ -66,6 +67,7 @@ Currently the following Logging levels are present in `brook-logger`.
   DEBUG = 'DEBUG',
 }
 ```
+
 ### Using Logging Levels
 
 To log at a specific level, just call the same method from the logger instance.
@@ -80,19 +82,22 @@ logger.error("this is a simple log text.");
 ```
 
 `brook-logger` will support customizable logging levels in future versions.
+
 ## Installation
 
 ``` bash
 npm install brook-logger
 ```
+
 ## Run Tests
 
-All of the tests are written with [`jest`][jest].
+All of the tests are written with [`jest`].
 They can be run with `npm`.
 
 ``` bash
 npm test
 ```
 
-#### Author: [ Jkan1 ]
-#### Contributors: -
+### Author: [ Jkan1 ]
+
+### Contributors: -
