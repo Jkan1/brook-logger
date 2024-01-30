@@ -42,8 +42,8 @@ export default class Logger {
         this.stdErrorName += '.log';
       }
 
-      this.stdOutStream = createWriteStream(this.stdOutName, { flags: 'a' });
-      this.stdErrorStream = createWriteStream(this.stdErrorName, { flags: 'a' });
+      this.stdOutStream = createWriteStream(this.stdOutName, { flags: 'as' });
+      this.stdErrorStream = createWriteStream(this.stdErrorName, { flags: 'as' });
     }
     if (loggerOptions?.initLog) this.log('Logger Initialized');
   }
